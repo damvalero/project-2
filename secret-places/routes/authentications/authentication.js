@@ -2,7 +2,7 @@
 
 const express = require("express");
 const route = express.Router();
-
+const passport = require("passport");
 // User model
 const User = require("../../models/user");
 
@@ -10,20 +10,19 @@ const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-route.get("/authentication/sign-up", (req, res, next) => {
+route.get("/sign-up", (req, res, next) => {
   res.render("sign-up");
 });
 
-route.post("/authentication/sign-up", (req, res, next) => {
-  const username = req.body.username;
+route.post("/sign-up", (req, res, next) => {
+  const email = req.body.email;
   const password = req.body.password;
-
-  if (username === "" || password === "") {
+  if (email === "" || password === "") {
     res.render("sign-up", { message: "Indicate username and password" });
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({ email })
   .then(user => {
     if (user !== null) {
       res.render("sign-up", { message: "The username already exists" });
@@ -34,7 +33,7 @@ route.post("/authentication/sign-up", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
-      username,
+      email,
       password: hashPass
     });
 
@@ -50,5 +49,16 @@ route.post("/authentication/sign-up", (req, res, next) => {
     next(error)
   })
 });
+
+route.get("/authentication/login", (req, res, next) => {
+  res.render("auth/login");
+});
+
+route.post("/authentication/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+  passReqToCallback: true
+}));
 
 module.exports = route;
