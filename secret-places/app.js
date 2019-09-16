@@ -7,11 +7,26 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
+const mongoose = require('mongoose')
+const session = require("express-session");
+const bcrypt = require("bcrypt");
+const passport = require("passport");
+const PassportLocalStrategy = require('passport-local').Strategy;
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
 
 const app = express();
+const User = require("./models/user");
+
+mongoose.Promise = Promise;
+mongoose
+  .connect('mongodb://localhost/secret-places-auth', {useMongoClient: true})
+  .then(() => {
+    console.log('Connected to Mongo!')
+  }).catch(err => {
+    console.error('Error connecting to mongo', err)
+  });
 
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
@@ -49,5 +64,43 @@ app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.render('error');
 });
+
+//Passport
+app.use(session({
+  secret: "our-passport-local-strategy-app",
+  resave: true,
+  saveUninitialized: true
+}));
+
+passport.serializeUser((user, cb) => {
+  cb(null, user._id);
+});
+
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+passport.use(new PassportLocalStrategy({ usernameField: 'email'}, (email, password, next) => {
+  User.findOne({ email }, (err, user) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next(null, false, { message: "Incorrect username" });
+    }
+    if (!bcrypt.compareSync(password, user.password)) {
+      return next(null, false, { message: "Incorrect password" });
+    }
+
+    return next(null, user);
+  });
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 module.exports = app;
