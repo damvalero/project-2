@@ -32,6 +32,8 @@ app.use(sassMiddleware({
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+const route = require("./routes/authentications/authentication.js");
+app.use('/', route);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

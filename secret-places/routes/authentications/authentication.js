@@ -4,29 +4,29 @@ const express = require("express");
 const route = express.Router();
 
 // User model
-const User = require("../models/user");
+const User = require("../../models/user");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-route.get("/sign-up", (req, res, next) => {
-  res.render("views/sign-up");
+route.get("/authentication/sign-up", (req, res, next) => {
+  res.render("sign-up");
 });
 
-route.post("/sign-up", (req, res, next) => {
+route.post("/authentication/sign-up", (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
 
   if (username === "" || password === "") {
-    res.render("views/sign-up", { message: "Indicate username and password" });
+    res.render("sign-up", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username })
   .then(user => {
     if (user !== null) {
-      res.render("views/sign-up", { message: "The username already exists" });
+      res.render("sign-up", { message: "The username already exists" });
       return;
     }
 
@@ -40,7 +40,7 @@ route.post("/sign-up", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("views/sign-up", { message: "Something went wrong" });
+        res.render("sign-up", { message: "Something went wrong" });
       } else {
         res.redirect("/");
       }
