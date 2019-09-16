@@ -1,66 +1,93 @@
-'use strict'
+'use strict';
 
-const express = require("express");
-const route = express.Router();
-const passport = require("passport");
-const ensureLogin = require("connect-ensure-login");
-const flash = require("connect-flash");
-// User model
-const User = require("../../models/user");
+const { Router } = require('express');
+const router = Router();
+const passport = require('passport');
+const routeGuardMiddleware = require('../../controllers/route-guard-middleware');
 
-// Bcrypt to encrypt passwords
-const bcrypt = require("bcrypt");
-const bcryptSalt = 10;
-
-route.get("/signup", (req, res, next) => {
-  res.render("signup");
+router.get('/signup', (req, res, next) => {
+  res.render('signup');
 });
 
-route.post("/signup", (req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
-  if (email === "" || password === "") {
-    res.render("signup", { message: "Indicate username and password" });
-    return;
-  }
-
-  User.findOne({ email })
-  .then(user => {
-    if (user !== null) {
-      res.render("signup", { message: "The username already exists" });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
-
-    const newUser = new User({
-      email,
-      password: hashPass
-    });
-
-    newUser.save((err) => {
-      if (err) {
-        res.render("signup", { message: "Something went wrong" });
-      } else {
-        res.redirect("/");
-      }
-    });
-  })
-  .catch(error => {
-    next(error)
-  })
-});
-
-route.get("/login", (req, res, next) => {
-  res.render("login");
-});
-
-route.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/login",
-  failureFlash: true,
-  passReqToCallback: true
+router.post('/signup', passport.authenticate('signup', {
+  successRedirect: "/private",
+  failureRedirect: "/signup"
 }));
 
-module.exports = route;
+router.get('/login', (req, res, next) => {
+  res.render('login');
+});
+
+
+router.post('/login', passport.authenticate('login', {
+  successRedirect: "/private",
+  failureRedirect: "/login"
+}));
+
+router.get('/private', routeGuardMiddleware, (req, res, next) => {
+  console.log("AM I LOGGED IN??", req.user)
+  res.render('private');
+});
+
+router.post('/sign-out', (req, res, next) => {
+  req.logout();
+  res.redirect('/');
+});
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// route.get("/signup", (req, res, next) => {
+//   res.render("signup");
+// });
+
+// // route.post('/signup', (req, res, next) => {
+// //   successRedirect: "/private",
+// //   failureRedirect: "/"
+// // });
+
+// route.post('/signup', passport.authenticate('signup', {
+//   successRedirect: "/private",
+//   failureRedirect: "/"
+//  }));
+
+// route.get("/login", (req, res, next) => {
+//   res.render("login");
+// });
+
+// route.post("/login", passport.authenticate("local", {
+//   successRedirect: "/",
+//   failureRedirect: "/login",
+//   failureFlash: true,
+//   passReqToCallback: true
+// }));
+
+// route.get("/private", (req, res) => {
+//   console.debug(req.user)
+//   res.render("private", { user: req.user });
+// });
+
+// route.get("/logout", (req, res) => {
+//   req.logout();
+//   req.session.destroy();
+//   res.redirect("/login");
+// });
+
+// module.exports = route;

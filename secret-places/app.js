@@ -8,39 +8,28 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const serveFavicon = require('serve-favicon');
 const mongoose = require('mongoose')
-const session = require("express-session");
+const expressSession = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const PassportLocalStrategy = require('passport-local').Strategy;
 const flash = require("connect-flash");
-
+const MongoStore  = require('connect-mongo')(expressSession);
 //Routers
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user');
-const route = require("./routes/authentications/authentication.js");
+//const usersRouter = require('./routes/user');
+const authenticationRouter = require("./routes/authentications/authentication");
 
 const app = express();
-const User = require("./models/user");
 
 
-mongoose.Promise = Promise;
-mongoose
-  .connect('mongodb://localhost/secret-places-auth', {useMongoClient: true})
-  .then(() => {
-    console.log('Connected to Mongo!')
-  }).catch(err => {
-    console.error('Error connecting to mongo', err)
-  });
+mongoose.connect('mongodb://localhost/secret-places-auth',);
 
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
 app.use(flash());
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -53,10 +42,80 @@ app.use(sassMiddleware({
   outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
   sourceMap: true
 }));
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET,
+  cookie: { maxAge: 60 * 60 * 24 * 1000 },
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 * 60
+  })
+}));
 
+
+
+
+//PASSPORT CONFIGURATION
+const User = require("./models/user");
+
+passport.serializeUser((user, callback) => {
+  callback(null, user._id);
+});
+
+passport.deserializeUser((id, callback) => {
+  User.findById(id)
+    .then(user => {
+      if (!user) {
+        callback(new Error('MISSING_USER'));
+      } else {
+        callback(null, user);
+      }
+    })
+    .catch(error => {
+      callback(error);
+    });
+});
+
+
+passport.use('login', new PassportLocalStrategy({ usernameField: 'email' }, (email, password, callback) => {
+  User.signIn(email, password)
+    .then(user => {
+      callback(null, user);
+    })
+    .catch(error => {
+      callback(error);
+    });
+}));
+
+passport.use('signup', new PassportLocalStrategy({ usernameField: 'email' }, (email, password, callback) => {
+  User.signUp(email, password)
+    .then(user => {
+      callback(null, user);
+    })
+    .catch(error => {
+      callback(error);
+    });
+}));
+ 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Routers
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
-app.use('/', route);
+//  app.use('/user', usersRouter);
+ app.use('/', authenticationRouter);
+
+ const routeGuardMiddleware = require('./controllers/route-guard-middleware');
+
+// Custom piece of middleware
+app.use((req, res, next) => {
+  // Access user information from within my templates
+  res.locals.user = req.user;
+  // Keep going to the next middleware or route handler
+  next();
+});
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
@@ -72,40 +131,5 @@ app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.render('error');
 });
-
-//Passport
-app.use(session({
-  secret: "our-passport-local-strategy-app",
-  resave: true,
-  saveUninitialized: true
-}));
-
-passport.serializeUser((user, cb) => {
-  cb(null, user._id);
-});
-
-passport.deserializeUser((id, cb) => {
-  User.findById(id, (err, user) => {
-    if (err) { return cb(err); }
-    cb(null, user);
-  });
-});
-
-passport.use(new PassportLocalStrategy({ usernameField: 'email' }, (email, password, next) => {
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      return next(null, false, { message: "Incorrect username" });
-    }
-    if (!bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect password" });
-    }
-    return next(null, user);
-  });
-}));
-
-
 
 module.exports = app;
