@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "connect-ensure-login": "^0.1.1",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
     "dotenv": "^8.1.0",

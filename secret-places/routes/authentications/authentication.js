@@ -3,6 +3,8 @@
 const express = require("express");
 const route = express.Router();
 const passport = require("passport");
+const ensureLogin = require("connect-ensure-login");
+const flash = require("connect-flash");
 // User model
 const User = require("../../models/user");
 
@@ -10,22 +12,22 @@ const User = require("../../models/user");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-route.get("/sign-up", (req, res, next) => {
-  res.render("sign-up");
+route.get("/signup", (req, res, next) => {
+  res.render("signup");
 });
 
-route.post("/sign-up", (req, res, next) => {
+route.post("/signup", (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   if (email === "" || password === "") {
-    res.render("sign-up", { message: "Indicate username and password" });
+    res.render("signup", { message: "Indicate username and password" });
     return;
   }
 
   User.findOne({ email })
   .then(user => {
     if (user !== null) {
-      res.render("sign-up", { message: "The username already exists" });
+      res.render("signup", { message: "The username already exists" });
       return;
     }
 
@@ -39,7 +41,7 @@ route.post("/sign-up", (req, res, next) => {
 
     newUser.save((err) => {
       if (err) {
-        res.render("sign-up", { message: "Something went wrong" });
+        res.render("signup", { message: "Something went wrong" });
       } else {
         res.redirect("/");
       }
@@ -50,11 +52,11 @@ route.post("/sign-up", (req, res, next) => {
   })
 });
 
-route.get("/authentication/login", (req, res, next) => {
-  res.render("auth/login");
+route.get("/login", (req, res, next) => {
+  res.render("login");
 });
 
-route.post("/authentication/login", passport.authenticate("local", {
+route.post("/login", passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
   failureFlash: true,

@@ -12,12 +12,16 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const PassportLocalStrategy = require('passport-local').Strategy;
+const flash = require("connect-flash");
 
+//Routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
+const route = require("./routes/authentications/authentication.js");
 
 const app = express();
 const User = require("./models/user");
+
 
 mongoose.Promise = Promise;
 mongoose
@@ -31,6 +35,11 @@ mongoose
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -47,7 +56,6 @@ app.use(sassMiddleware({
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
-const route = require("./routes/authentications/authentication.js");
 app.use('/', route);
 
 // Catch missing routes and forward to error handler
@@ -83,7 +91,7 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new PassportLocalStrategy({ usernameField: 'email'}, (email, password, next) => {
+passport.use(new PassportLocalStrategy({ usernameField: 'email' }, (email, password, next) => {
   User.findOne({ email }, (err, user) => {
     if (err) {
       return next(err);
@@ -94,13 +102,10 @@ passport.use(new PassportLocalStrategy({ usernameField: 'email'}, (email, passwo
     if (!bcrypt.compareSync(password, user.password)) {
       return next(null, false, { message: "Incorrect password" });
     }
-
     return next(null, user);
   });
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 module.exports = app;
