@@ -12,11 +12,16 @@ const placesSchema = new mongoose.Schema({
   address: {
     type: String,
     required: true
+  },
+  category: {
+    type: String,
+    enum: [ 'To See', 'To Eat', 'To Drink' ],
+    default: 'To See'
+  },
+  subCategory: {
+    type: String,
+    enum: [ 'Club', 'Scenic Spot', 'Park' ]
   }
-//   category: {
-//     type: Float32Array,
-//     required: true
-//   }
 });
 
 const Places = mongoose.model('Places', placesSchema);

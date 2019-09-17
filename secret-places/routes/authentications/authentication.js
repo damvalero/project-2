@@ -6,7 +6,6 @@ const router = Router();
 const passport = require('passport');
 const routeGuardMiddleware = require('../../controllers/route-guard-middleware');
 const Places = require('../../models/places');
-const locations = [];
 
 router.get('/signup', (req, res, next) => {
   res.render('signup');
@@ -28,6 +27,18 @@ router.post('/login', passport.authenticate('login', {
 
 router.get('/private', routeGuardMiddleware, (req, res, next) => {
   res.render('private', {API_KEY: process.env.API_KEY});
+});
+
+router.get('/chooseCat', routeGuardMiddleware, (req, res, next) => {
+    Places.find({ category: 'To See' }, (error, places) => {
+      if (error) { 
+        next(error); 
+      } else { 
+        
+        res.status(200).json({ places: places });
+        res.redirect('/private')
+      }
+    });
 });
 
 router.post('/logout', (req, res, next) => {

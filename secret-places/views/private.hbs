@@ -1,21 +1,43 @@
 <h1>Private</h1>
 <p>Welcome!</p>
 <p>You deployed with heroku</p>
+
+<form method="POST" action="/chooseCat">
+<div class='form-group'>
+    <label for="category-filter">Choose a Category:</label>
+    <select id="category-filter">
+        <option value="">Choose An Option</option>
+        <option value="see">To See</option>
+        <option value="eat">To Eat</option>
+        <option value="drink">To Drink</option>
+    </select>
+    <button>Submit</button>
+</div>
+</form>
+
  <div id="map"></div>
 
  <form method="POST" action="/addPlace">
+ <div class='form-group'>
+    <label for="category">Choose a Category:</label>
+    <select id="category">
+        <option value="">Choose An Option</option>
+        <option value="see">To See</option>
+        <option value="eat">To Eat</option>
+        <option value="drink">To Drink</option>
+    </select>
+</div>
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" name="name" placeholder="Place Name">
   </div>
   <div class="form-group">
-    <label for="address">Address</label>
+    <label for="address">Address:</label>
     <input type="address" name="address" placeholder="Address">
   </div>
   <button type="submit">Add New Place</button>
 </form>
 
- {{!-- <script type="text/javascript">
-     var myPlaces = {{places}};
-    </script> --}}
+{{!-- <button id="showMe" class="btn">Use My Location</button> --}}
+
  

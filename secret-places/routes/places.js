@@ -13,14 +13,16 @@ router.get('/places', (req, res, next) => {
 			res.status(200).json({ places: places });
 		}
 	});
-     });
+});
 
 router.post('/addPlace', (req, res, next) => {
    let name = req.body.name;
    let address = req.body.address;
+   let category = req.body.category;
    Places.create({ 
     name: name,
-    address: address
+    address: address,
+    category: category
     })
     .then(place => { 
         res.redirect('/private')
