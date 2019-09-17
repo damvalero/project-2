@@ -18,14 +18,12 @@ router.get('/login', (req, res, next) => {
   res.render('login');
 });
 
-
 router.post('/login', passport.authenticate('login', {
   successRedirect: "/private",
   failureRedirect: "/login"
 }));
 
 router.get('/private', routeGuardMiddleware, (req, res, next) => {
-  console.log("AM I LOGGED IN??", req.user)
   res.render('private');
 });
 
