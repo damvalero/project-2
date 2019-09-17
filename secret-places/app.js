@@ -1,5 +1,6 @@
 'use strict';
 
+require("dotenv").config();
 const { join } = require('path');
 const express = require('express');
 const createError = require('http-errors');
@@ -22,7 +23,7 @@ const authenticationRouter = require("./routes/authentications/authentication");
 const app = express();
 
 
-mongoose.connect('mongodb://localhost/secret-places-auth',);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Setup view engine
 app.set('views', join(__dirname, 'views'));
