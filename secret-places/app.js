@@ -16,6 +16,7 @@ const PassportLocalStrategy = require('passport-local').Strategy;
 const flash = require("connect-flash");
 const MongoStore  = require('connect-mongo')(expressSession);
 
+
 //Routers
 const indexRouter = require('./routes/index');
 //const usersRouter = require('./routes/user');
