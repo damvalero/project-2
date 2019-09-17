@@ -1,30 +1,17 @@
-window.addEventListener('load', () => {
-  console.log('Ironmaker app started successfully!');
-}, false);
+// window.addEventListener('load', () => {
+// }, false);
 
 const $mapContainer = document.getElementById('map');
-
 let map;
-
 function init() {
   map = new google.maps.Map($mapContainer, {
     center: { lat: 39, lng: -9.75 },
     zoom: 8
   });
 
+  // geocodeAddress(geocoder, map);
 }
  
-// function initMap() {
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 8,
-//     center: {lat: -34.397, lng: 150.644}
-//   });
-//   var geocoder = new google.maps.Geocoder();
-
-//   document.getElementById('submit').addEventListener('click', function() {
-//     geocodeAddress(geocoder, map);
-//   });
-// }
 
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
@@ -40,3 +27,35 @@ function geocodeAddress(geocoder, resultsMap) {
     }
   });
 }
+
+function getPlaces() {
+  axios.get("/places")
+   .then( res => {
+    // console.log(res.data.places)
+    placePlaces(res.data.places);
+     
+   })
+   .catch(error => {
+     console.log(error);
+   })
+ }
+
+//  public/javascripts/main.js
+function placePlaces(places){
+  places.forEach(function(place){
+    
+    const center = {
+      lat: place.coordinates[1],
+      lng: place.coordinates[0]
+    };
+    console.log(center)
+    const marker = new google.maps.Marker({
+      position: center,
+      map : map
+      // title: place.name
+    });
+    // markers.push(marker);
+  });
+}
+
+getPlaces();

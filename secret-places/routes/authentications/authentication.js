@@ -5,6 +5,8 @@ const { Router } = require('express');
 const router = Router();
 const passport = require('passport');
 const routeGuardMiddleware = require('../../controllers/route-guard-middleware');
+const Places = require('../../models/places');
+const locations = [];
 
 router.get('/signup', (req, res, next) => {
   res.render('signup');

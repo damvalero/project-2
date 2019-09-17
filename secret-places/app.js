@@ -25,7 +25,7 @@ const placesRouter = require("./routes/places");
 const app = express();
 
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 // Setup view engine
 app.set('views', join(__dirname, 'views'));

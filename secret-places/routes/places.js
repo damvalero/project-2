@@ -5,6 +5,16 @@ const router = Router();
 
 const Places = require('../models/places');
 
+router.get('/places', (req, res, next) => {
+    Places.find({}, (error, places) => {
+		if (error) { 
+			next(error); 
+		} else { 
+			res.status(200).json({ places: places });
+		}
+	});
+     });
+
 router.post('/addPlace', (req, res, next) => {
    let name = req.body.name;
    let address = req.body.address;
@@ -20,3 +30,5 @@ router.post('/addPlace', (req, res, next) => {
     });
 
 module.exports = router;
+
+
