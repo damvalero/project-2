@@ -1,5 +1,6 @@
 'use strict';
 
+require("dotenv").config();
 const { Router } = require('express');
 const router = Router();
 const passport = require('passport');
@@ -24,7 +25,7 @@ router.post('/login', passport.authenticate('login', {
 }));
 
 router.get('/private', routeGuardMiddleware, (req, res, next) => {
-  res.render('private');
+  res.render('private', {API_KEY: process.env.API_KEY});
 });
 
 router.post('/logout', (req, res, next) => {
@@ -34,58 +35,3 @@ router.post('/logout', (req, res, next) => {
 
 module.exports = router;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// route.get("/signup", (req, res, next) => {
-//   res.render("signup");
-// });
-
-// // route.post('/signup', (req, res, next) => {
-// //   successRedirect: "/private",
-// //   failureRedirect: "/"
-// // });
-
-// route.post('/signup', passport.authenticate('signup', {
-//   successRedirect: "/private",
-//   failureRedirect: "/"
-//  }));
-
-// route.get("/login", (req, res, next) => {
-//   res.render("login");
-// });
-
-// route.post("/login", passport.authenticate("local", {
-//   successRedirect: "/",
-//   failureRedirect: "/login",
-//   failureFlash: true,
-//   passReqToCallback: true
-// }));
-
-// route.get("/private", (req, res) => {
-//   console.debug(req.user)
-//   res.render("private", { user: req.user });
-// });
-
-// route.get("/logout", (req, res) => {
-//   req.logout();
-//   req.session.destroy();
-//   res.redirect("/login");
-// });
-
-// module.exports = route;

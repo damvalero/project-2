@@ -56,9 +56,6 @@ app.use(expressSession({
   })
 }));
 
-
-
-
 //PASSPORT CONFIGURATION
 const User = require("./models/user");
 
@@ -115,7 +112,6 @@ app.use((req, res, next) => {
 
 //Routers
 app.use('/', indexRouter);
-//  app.use('/user', usersRouter);
  app.use('/', authenticationRouter);
  
 const routeGuardMiddleware = require('./controllers/route-guard-middleware');
