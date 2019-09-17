@@ -77,10 +77,10 @@ passport.deserializeUser((id, callback) => {
     });
 });
 
-
 passport.use('login', new PassportLocalStrategy({ usernameField: 'email' }, (email, password, callback) => {
   User.signIn(email, password)
     .then(user => {
+      console.log(user)
       callback(null, user);
     })
     .catch(error => {
@@ -102,13 +102,6 @@ passport.use('signup', new PassportLocalStrategy({ usernameField: 'email' }, (em
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Routers
-app.use('/', indexRouter);
-//  app.use('/user', usersRouter);
- app.use('/', authenticationRouter);
-
- const routeGuardMiddleware = require('./controllers/route-guard-middleware');
-
 // Custom piece of middleware
 app.use((req, res, next) => {
   // Access user information from within my templates
@@ -116,6 +109,13 @@ app.use((req, res, next) => {
   // Keep going to the next middleware or route handler
   next();
 });
+
+//Routers
+app.use('/', indexRouter);
+//  app.use('/user', usersRouter);
+ app.use('/', authenticationRouter);
+ 
+const routeGuardMiddleware = require('./controllers/route-guard-middleware');
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
