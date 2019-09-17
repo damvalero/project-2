@@ -19,8 +19,8 @@ const MongoStore  = require('connect-mongo')(expressSession);
 
 //Routers
 const indexRouter = require('./routes/index');
-//const usersRouter = require('./routes/user');
 const authenticationRouter = require("./routes/authentications/authentication");
+const placesRouter = require("./routes/places");
 
 const app = express();
 
@@ -112,7 +112,8 @@ app.use((req, res, next) => {
 
 //Routers
 app.use('/', indexRouter);
- app.use('/', authenticationRouter);
+app.use('/', authenticationRouter);
+app.use('/', placesRouter);
  
 const routeGuardMiddleware = require('./controllers/route-guard-middleware');
 
