@@ -17,9 +17,9 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
            {{#if user}}
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
-          </li>
+          <form method="POST" action="/logout">
+              <button class="btn">Logout</button>
+            </form>
            <li class="nav-item">
               <a class="nav-link" href="/private">Private</a>
            </li>
