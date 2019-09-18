@@ -3,11 +3,12 @@
 let markers = []
 let mapMarker = []
 
-const $mapContainer = document.getElementById('map');
+const mapContainer = document.getElementById('map');
 let categoryButton = document.getElementById('category-filter-btn');
 let selectButton = document.getElementById("category-filter");
 let locationButton = document.getElementById("location-btn");
 let currentLocation = document.getElementById("location-input");
+const container = document.querySelector(".places-container");
 
 categoryButton.addEventListener('click', event => {
   let result = selectButton.options[selectButton.selectedIndex].value;
@@ -53,7 +54,7 @@ function getPlaces(result) {
 
 let map;
 function init() {
-  map = new google.maps.Map($mapContainer, {
+  map = new google.maps.Map(mapContainer, {
     center: { lat: 39, lng: -9.75 },
     zoom: 8
   });
@@ -83,6 +84,19 @@ function placePlaces(){
     });
     mapMarker.push(marker)
   });
+  displayPlaces()
+}
+
+function displayPlaces(){
+  container.innerHTML = "";
+  for(let place of markers){
+    container.innerHTML += `
+    <div class="character-info">
+      <h1 class="placeName">${place.name}</h1>
+      <p class="placeDescription">${place.description}</p>
+      <p class="placeTime font-italic"> Time Posted: ${place.time}</p>
+    </div>`;
+  }
 }
 
 getPlaces();

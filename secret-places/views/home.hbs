@@ -11,11 +11,21 @@
     <button id="category-filter-btn">Submit</button>
 </div>
  <div id="map"></div>
+  
  {{!-- <button type="button"><a href="/add">Add New Place</a></button> --}}
- </form>
+
+ {{!-- Lists each place --}}
+   <div class="places-container">
+      <div class="place-info">
+        <h1 class="placeName">Name</h1>
+        <p class="placeDescription">Description</p>
+        <p class="placeTime">Time</p>
+      </div>
+  </div>
+
 
  <h1>Add a Secret Place!</h1>
-   <button id='location-btn'>Get My Location</button>
+  <button id='location-btn'>Get My Location</button>
 
  <form method="POST" action="/addPlace">
  <div class='form-group'>
@@ -40,10 +50,4 @@
     <textarea name="description" id="description" cols="50" rows="6"></textarea>
     <button>Submit</button>
   </div>
-
-  <div class='place'>
-    <h1 class='placeName'>Name</h1>
-    <h3 class='placeTime'>Time Posted:</h3>
-    <p class='placeDescription'>Description</p>
-  </div>
- 
+   </form>
