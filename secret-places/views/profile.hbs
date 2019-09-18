@@ -4,11 +4,11 @@
 
    {{#each places}}
     <p>{{this.name}}</p>
+    <img class="placeImgPro" src="{{this.image}}" alt="">
     <p>{{this.description}}</p>
         <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
         <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
     {{/each}}
-
 
 <button><a href='/add'>Add New Place</a></button>
 
