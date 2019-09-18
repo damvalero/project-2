@@ -29,18 +29,6 @@ router.get('/private', routeGuardMiddleware, (req, res, next) => {
   res.render('private', {API_KEY: process.env.API_KEY});
 });
 
-router.get('/chooseCat', routeGuardMiddleware, (req, res, next) => {
-    Places.find({ category: 'To See' }, (error, places) => {
-      if (error) { 
-        next(error); 
-      } else { 
-        
-        res.status(200).json({ places: places });
-        res.redirect('/private')
-      }
-    });
-});
-
 router.post('/logout', (req, res, next) => {
   req.logout();
   res.redirect('/');

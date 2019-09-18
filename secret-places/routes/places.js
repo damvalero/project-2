@@ -17,11 +17,11 @@ router.get('/places', (req, res, next) => {
 
 router.post('/addPlace', (req, res, next) => {
    let name = req.body.name;
-   let address = req.body.address;
+   let location = req.body.location;
    let category = req.body.category;
    Places.create({ 
     name: name,
-    address: address,
+    location: location,
     category: category
     })
     .then(place => { 
