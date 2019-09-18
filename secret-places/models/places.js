@@ -30,12 +30,11 @@ const placesSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  reviews:[
-    
-  { email: String,
+  reviews:[{
+    email: String,
     title: String,
-    comment: String}
-  ]
+    comment: String
+  }]
 });
 
 const Places = mongoose.model('Places', placesSchema);

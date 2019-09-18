@@ -78,6 +78,39 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
     });
     });
 
+
+    router.get('/placeDetail/:id', routeGuardMiddleware, (req, res, next) => {
+      const id = req.params.id
+
+    Places.findById(id)
+    .then((place) => {
+      console.log(place)
+      res.render("place-detail", {place});
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    });
+
+    router.post('/add-comment/:id', routeGuardMiddleware, (req, res, next) => {
+      const id = req.params.id
+      const newReview = {
+        title: req.body.title,
+        comment:req.body.comment
+
+      }
+      console.log("UPDATE INFO", newReview);
+    Places.findByIdAndUpdate(id, {
+       $push: {reviews: newReview}
+    })
+    .then((place) => {
+      console.log("UPDATED PLACE",place)
+      res.redirect("/placeDetail/" + place._id)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    });
 module.exports = router;
 
 

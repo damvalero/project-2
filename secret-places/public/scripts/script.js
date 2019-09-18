@@ -89,6 +89,7 @@ function displayPlaces(){
       <img class='placeImgPro' src="${place.image}"
       " alt="">
       <p class="placeDescription">${place.description}</p>
+      <a href="placeDetail/${place._id}"> See more</a>
       <p class="placeTime font-italic font-weight-bold"> Time Posted: ${place.time}</p>
     </div>`;
   }
