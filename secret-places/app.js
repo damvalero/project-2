@@ -15,6 +15,7 @@ const passport = require("passport");
 const PassportLocalStrategy = require('passport-local').Strategy;
 const flash = require("connect-flash");
 const MongoStore  = require('connect-mongo')(expressSession);
+const bodyParser = require('body-parser')
 
 
 //Routers
@@ -31,7 +32,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 app.set('views', join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true}))
 app.use(flash());
 app.use(logger('dev'));
 app.use(express.json());

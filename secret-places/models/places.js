@@ -14,9 +14,7 @@ const placesSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: String,
-    enum: [ 'To See', 'To Eat', 'To Drink' ],
-    default: 'To See'
+    type: String
   },
   subCategory: {
     type: String,

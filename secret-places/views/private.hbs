@@ -1,9 +1,7 @@
 <h1>Private</h1>
 <p>Welcome!</p>
 <p>You deployed with heroku</p>
-
-{{!-- <form method="POST" action="/places">
-<div class='form-group'> --}}
+<div>
     <label for="category-filter">Choose a Category:</label>
     <select id="category-filter">
         <option value="">Choose An Option</option>
@@ -13,34 +11,32 @@
     </select>
     <button id="category-filter-btn">Submit</button>
 </div>
-{{!-- </form> --}}
 
  <div id="map"></div>
 
  <h1>Add a Secret Place!</h1>
  <button id='location-btn'>Get My Location</button>
+ 
  <form method="POST" action="/addPlace">
-   <div class="form-group">
-    <label for="location">Location:</label>
-    <input id="location-input" type="text" name="location" placeholder="Location">
- </div>
  <div class='form-group'>
     <label for="category">Choose a Category:</label>
-    <select id="category">
+    <select id="category" name="category">
         <option value="">Choose An Option</option>
-        <option value="see">To See</option>
-        <option value="eat">To Eat</option>
-        <option value="drink">To Drink</option>
+        <option value="tosee">To See</option>
+        <option value="toeat">To Eat</option>
+        <option value="todrink">To Drink</option>
     </select>
-</div>
+  </div>
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" name="name" placeholder="Place Name">
   </div>
-
+   <div class="form-group">
+    <label for="location">Location:</label>
+    <input id="location-input" type="text" name="location" placeholder="Location">
+ </div>
   <button type="submit">Add New Place</button>
 </form>
 
-{{!-- <button id="showMe" class="btn">Use My Location</button> --}}
 
  

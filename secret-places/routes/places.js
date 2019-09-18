@@ -19,6 +19,7 @@ router.post('/addPlace', (req, res, next) => {
    let name = req.body.name;
    let location = req.body.location;
    let category = req.body.category;
+   console.log('body', req.body)
    Places.create({ 
     name: name,
     location: location,
