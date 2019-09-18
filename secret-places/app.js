@@ -22,6 +22,7 @@ const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
 const authenticationRouter = require("./routes/authentications/authentication");
 const placesRouter = require("./routes/places");
+const userRouter = require("./routes/user");
 
 const app = express();
 
@@ -116,6 +117,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/', authenticationRouter);
 app.use('/', placesRouter);
+app.use('/', userRouter);
  
 const routeGuardMiddleware = require('./controllers/route-guard-middleware');
 

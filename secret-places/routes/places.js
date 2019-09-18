@@ -29,6 +29,7 @@ router.post('/addPlace', (req, res, next) => {
    Places.create({ 
     name: name,
     time: today.getHours() + ":" + today.getMinutes(),
+    addedBy: req.user.email,
     location: location,
     category: category,
     description: description

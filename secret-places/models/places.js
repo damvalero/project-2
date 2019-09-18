@@ -20,11 +20,12 @@ const placesSchema = new mongoose.Schema({
     required: true
   },
   category: {
-    type: String
-  },
-  subCategory: {
     type: String,
-    enum: [ 'Club', 'Scenic Spot', 'Park' ]
+    required: true
+  },
+  addedBy: {
+    type: String,
+    required: true
   }
 });
 

@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   }
+  
 });
 
 const signInStatic = require('./user-login');
