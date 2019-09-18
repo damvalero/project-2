@@ -29,7 +29,13 @@ const placesSchema = new mongoose.Schema({
   addedBy: {
     type: String,
     required: true
-  }
+  },
+  reviews:[
+    
+  { email: String,
+    title: String,
+    comment: String}
+  ]
 });
 
 const Places = mongoose.model('Places', placesSchema);
