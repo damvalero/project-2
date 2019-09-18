@@ -14,19 +14,27 @@ router.get('/places', (req, res, next) => {
 		}
 	});
 });
+let today = new Date();
+
+
+router.get('/add', (req, res, next) => {
+    res.render('add');
+  });
 
 router.post('/addPlace', (req, res, next) => {
    let name = req.body.name;
    let location = req.body.location;
    let category = req.body.category;
-   console.log('body', req.body)
+   let description = req.body.description;
    Places.create({ 
     name: name,
+    time: today.getHours() + ":" + today.getMinutes(),
     location: location,
-    category: category
+    category: category,
+    description: description
     })
     .then(place => { 
-        res.redirect('/private')
+        res.redirect('/home')
         console.log('The place is saved and its value is: ', place); 
     })
     .catch(err => { console.log('An error happened:', err)});

@@ -5,11 +5,17 @@ const mongoose = require('mongoose');
 const placesSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
-    unique: true,
-    trim: true,
+    required: true
+  },
+  time: {
+    type: String,
+    required: true
   },
   location: {
+    type: String,
+    required: true
+  },
+  description: {
     type: String,
     required: true
   },

@@ -12,7 +12,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', passport.authenticate('signup', {
-  successRedirect: "/private",
+  successRedirect: "/home",
   failureRedirect: "/signup"
 }));
 
@@ -21,12 +21,12 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', passport.authenticate('login', {
-  successRedirect: "/private",
+  successRedirect: "/home",
   failureRedirect: "/login"
 }));
 
-router.get('/private', routeGuardMiddleware, (req, res, next) => {
-  res.render('private', {API_KEY: process.env.API_KEY});
+router.get('/home', routeGuardMiddleware, (req, res, next) => {
+  res.render('home', {API_KEY: process.env.API_KEY});
 });
 
 router.post('/logout', (req, res, next) => {

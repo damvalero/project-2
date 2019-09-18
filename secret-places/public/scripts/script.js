@@ -1,4 +1,4 @@
-const locationsAvailable = document.getElementById('locationList');
+// const locationsAvailable = document.getElementById('locationList');
 
 let markers = []
 let mapMarker = []
@@ -9,10 +9,8 @@ let selectButton = document.getElementById("category-filter");
 let locationButton = document.getElementById("location-btn");
 let currentLocation = document.getElementById("location-input");
 
-//Event Listeners
 categoryButton.addEventListener('click', event => {
   let result = selectButton.options[selectButton.selectedIndex].value;
-  console.log(result)
   clearMarkers()
   markers = []
   mapMarker = []  
@@ -20,6 +18,7 @@ categoryButton.addEventListener('click', event => {
 });
 
 locationButton.addEventListener('click', event => {
+  console.log('Hi')
   navigator.geolocation.getCurrentPosition(function(position) {
     let lat = position.coords.latitude;
     let lng = position.coords.longitude;

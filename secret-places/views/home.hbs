@@ -1,6 +1,5 @@
-<h1>Private</h1>
-<p>Welcome!</p>
-<p>You deployed with heroku</p>
+<h1>Home</h1>
+
 <div>
     <label for="category-filter">Choose a Category:</label>
     <select id="category-filter">
@@ -11,14 +10,19 @@
     </select>
     <button id="category-filter-btn">Submit</button>
 </div>
-
  <div id="map"></div>
+ {{!-- <button type="button"><a href="/add">Add New Place</a></button> --}}
+ </form>
 
  <h1>Add a Secret Place!</h1>
- <button id='location-btn'>Get My Location</button>
- 
+   <button id='location-btn'>Get My Location</button>
+
  <form method="POST" action="/addPlace">
  <div class='form-group'>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input id="location-input" type="text" name="location" placeholder="Location">
+    </div>
     <label for="category">Choose a Category:</label>
     <select id="category" name="category">
         <option value="">Choose An Option</option>
@@ -31,12 +35,15 @@
     <label for="name">Name:</label>
     <input type="text" name="name" placeholder="Place Name">
   </div>
-   <div class="form-group">
-    <label for="location">Location:</label>
-    <input id="location-input" type="text" name="location" placeholder="Location">
- </div>
-  <button type="submit">Add New Place</button>
-</form>
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" cols="50" rows="6"></textarea>
+    <button>Submit</button>
+  </div>
 
-
+  <div class='place'>
+    <h1 class='placeName'>Name</h1>
+    <h3 class='placeTime'>Time Posted:</h3>
+    <p class='placeDescription'>Description</p>
+  </div>
  
