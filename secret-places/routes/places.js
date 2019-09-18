@@ -16,7 +16,6 @@ router.get('/places', (req, res, next) => {
 });
 let today = new Date();
 
-
 router.get('/add', (req, res, next) => {
     res.render('add');
   });
@@ -39,6 +38,39 @@ router.post('/addPlace', (req, res, next) => {
         console.log('The place is saved and its value is: ', place); 
     })
     .catch(err => { console.log('An error happened:', err)});
+    });
+
+  router.get('/edit/:id', (req, res, next) => {
+    Places.findOne({_id: req.params.id})
+  .then((place) => {
+    console.log(place)
+    res.render("edit", {place});
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+  });
+
+  router.post('/edit/:id', (req, res, next) => {
+    const { name, category, description } = req.body;
+  Places.update({_id: req.params.id}, { $set: {name, category, description}})
+  .then((place) => {
+    res.redirect("/profile/" + req.user._id);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  });
+
+  router.get('/delete/:id', (req, res, next) => {
+    Places.deleteOne({_id: req.params.id})
+   .then((place) => {
+    console.log(req.user._id)
+    res.redirect("/profile/" + req.user._id);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
     });
 
 module.exports = router;

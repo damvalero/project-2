@@ -11,8 +11,6 @@ router.get('/profile/:id', (req, res, next) => {
     const data = {
       places: places
     }
-
-    console.log(data);
     res.render('profile', data);
     })
   .catch(error => {

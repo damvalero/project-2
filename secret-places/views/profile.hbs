@@ -4,7 +4,11 @@
 
    {{#each places}}
     <p>{{this.name}}</p>
+    <p>{{this.description}}</p>
+        <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
+        <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
     {{/each}}
+
 </div>
 
 

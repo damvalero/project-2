@@ -1,12 +1,5 @@
- <h2>Add a Secret Place!</h2>
-<button id='location-btn'>Get My Location</button>
-
- <form method="POST" action="/addPlace">
+<form method="POST" action="/edit/{{place._id}}">
  <div class='form-group'>
-    <div class="form-group">
-      <label for="location">Location:</label>
-      <input id="location-input" type="text" name="location" placeholder="Location">
-    </div>
     <label for="category">Choose a Category:</label>
     <select id="category" name="category">
         <option value="">Choose An Option</option>
@@ -17,15 +10,11 @@
   </div>
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" name="name" placeholder="Place Name">
+    <input type="text" name="name" placeholder="Place Name" value="{{place.name}}">
   </div>
   <div class="form-group">
     <label for="description">Description:</label>
-    <textarea name="description" id="description" cols="50" rows="6"></textarea>
+    <textarea name="description" id="description" cols="50" rows="6" >{{place.description}}</textarea>
     <button>Submit</button>
   </div>
    </form>
-
-  
-
- 
