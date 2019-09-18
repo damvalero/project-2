@@ -6,8 +6,8 @@ let mapMarker = []
 const mapContainer = document.getElementById('map');
 let categoryButton = document.getElementById('category-filter-btn');
 let selectButton = document.getElementById("category-filter");
-let locationButton = document.getElementById("location-btn");
-let currentLocation = document.getElementById("location-input");
+//let locationButton = document.getElementById("location-btn");
+
 const container = document.querySelector(".places-container");
 
 //Add Event Listener
@@ -19,14 +19,14 @@ categoryButton.addEventListener('click', event => {
   getPlaces(result)	 
 });
 
-locationButton.addEventListener('click', event => {
-  console.log('Hi')
-  navigator.geolocation.getCurrentPosition(function(position) {
-    let lat = position.coords.latitude;
-    let lng = position.coords.longitude;
-    currentLocation.value = lat + ',' + lng ;
-  });
-});
+// locationButton.addEventListener('click', event => {
+//   console.log('Hi')
+//   navigator.geolocation.getCurrentPosition(function(position) {
+//     let lat = position.coords.latitude;
+//     let lng = position.coords.longitude;
+//     currentLocation.value = lat + ',' + lng ;
+//   });
+// });
 
 // Gets Markers from Database
 function getPlaces(result) {

@@ -1,7 +1,7 @@
- {{!-- <h2>Add a Secret Place!</h2>
+ <h2>Add a Secret Place!</h2>
 <button id='location-btn'>Get My Location</button>
 
- <form method="POST" action="/addPlace">
+ <form method="POST" action="/addPlace" enctype="multipart/form-data">
  <div class='form-group'>
     <div class="form-group">
       <label for="location">Location:</label>
@@ -22,10 +22,12 @@
   <div class="form-group">
     <label for="description">Description:</label>
     <textarea name="description" id="description" cols="50" rows="6"></textarea>
+    <h2>Add the a photo</h2>
+    <input type="file" name="file">
     <button>Submit</button>
   </div>
-   </form> --}}
+   </form>
 
-  
+  <script src="scripts/add.js"></script>
 
  

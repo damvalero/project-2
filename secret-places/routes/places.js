@@ -5,8 +5,9 @@ const router = Router();
 
 const Places = require('../models/places');
 const uploadCloud = require("../configurations/cloudinary.js");
+const routeGuardMiddleware = require('../controllers/route-guard-middleware');
 
-router.get('/places', (req, res, next) => {
+router.get('/places', routeGuardMiddleware, (req, res, next) => {
     Places.find({}, (error, places) => {
 		if (error) { 
 			next(error); 
@@ -17,7 +18,7 @@ router.get('/places', (req, res, next) => {
 });
 let today = new Date();
 
-router.get('/add', (req, res, next) => {
+router.get('/add', routeGuardMiddleware, (req, res, next) => {
     res.render('add');
   });
 
@@ -38,13 +39,13 @@ router.get('/add', (req, res, next) => {
     image: req.file.url
     })
     .then(place => { 
-        res.redirect('/home')
+        res.redirect('/')
         console.log('The place is saved and its value is: ', place); 
     })
     .catch(err => { console.log('An error happened:', err)});
     });
 
-  router.get('/edit/:id', (req, res, next) => {
+  router.get('/edit/:id', routeGuardMiddleware, (req, res, next) => {
     Places.findOne({_id: req.params.id})
   .then((place) => {
     console.log(place)
@@ -55,7 +56,7 @@ router.get('/add', (req, res, next) => {
   });
   });
 
-  router.post('/edit/:id', (req, res, next) => {
+  router.post('/edit/:id', routeGuardMiddleware, (req, res, next) => {
     const { name, category, description } = req.body;
   Places.update({_id: req.params.id}, { $set: {name, category, description}})
   .then((place) => {
@@ -66,7 +67,7 @@ router.get('/add', (req, res, next) => {
   })
   });
 
-  router.get('/delete/:id', (req, res, next) => {
+  router.get('/delete/:id', routeGuardMiddleware, (req, res, next) => {
     Places.deleteOne({_id: req.params.id})
    .then((place) => {
     console.log(req.user._id)
