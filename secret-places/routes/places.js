@@ -4,6 +4,7 @@ const { Router } = require('express');
 const router = Router();
 
 const Places = require('../models/places');
+const uploadCloud = require("../configurations/cloudinary.js");
 
 router.get('/places', (req, res, next) => {
     Places.find({}, (error, places) => {
@@ -20,18 +21,21 @@ router.get('/add', (req, res, next) => {
     res.render('add');
   });
 
-router.post('/addPlace', (req, res, next) => {
+  router.post('/addPlace', uploadCloud.single("file"), (req, res, next) => {
+  console.log("THIS IS REQ.FILE", req.file.url);
    let name = req.body.name;
    let location = req.body.location;
    let category = req.body.category;
    let description = req.body.description;
+   let image = req.file.url;
    Places.create({ 
     name: name,
     time: today.getHours() + ":" + today.getMinutes(),
     addedBy: req.user.email,
     location: location,
     category: category,
-    description: description
+    description: description,
+    image: req.file.url
     })
     .then(place => { 
         res.redirect('/home')
