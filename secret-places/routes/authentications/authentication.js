@@ -31,7 +31,7 @@ router.get('/home', (req, res, next) => {
 
 router.post('/logout', (req, res, next) => {
   req.logout();
-  res.redirect('/home');
+  res.redirect('/');
 });
 
 module.exports = router;

@@ -111,4 +111,23 @@ background-color: #A45C40;
       margin: 0 auto; }
   }
 
+  body {
+    margin: 0;
+    font-family: 'Muli', sans-serif;
+    background-color: white;
+    background-size: cover; 
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .a:hover {
+    text-decoration: none;
+    }
+  
+    .sign-title {
+      margin-top: 4rem;
+    }
 

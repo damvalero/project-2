@@ -7131,3 +7131,7 @@ a {
 .a:hover {
   text-decoration: none;
   }
+
+  .sign-title {
+    margin-top: 10rem;
+  }
