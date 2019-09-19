@@ -7023,7 +7023,7 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #D5B794;
+  background-color: white;
   background-size: cover; }
 
 a {
@@ -7088,9 +7088,12 @@ a {
  background-color: #A45C40;
  }
 
+
  .profile-btn{
+  color: white;
   text-decoration: none;
-}
+} 
+
 .home-img{
   background-image: url("../images/landscape3.jpg");
   background-size: cover;
@@ -7103,3 +7106,9 @@ a {
   padding-top: 5px;
 }
 
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  background-color: white;
+  background-size: cover; 
+}
