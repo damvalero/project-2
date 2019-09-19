@@ -7080,7 +7080,7 @@ a {
 @media (min-width: 320px) and (max-width: 768px) {
   #map {
     margin: 0;
-    width: 60vw;
+    width: 80vw;
     height: 40vh;
     overflow: hidden;
     margin: 0 auto; }

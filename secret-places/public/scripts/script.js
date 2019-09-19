@@ -90,7 +90,7 @@ function displayPlaces(){
       <div class="card place-info">
         <div class="card-body">
           <img class='placeImg card-img-top' src="${place.image}" alt="place">
-          <h5 class="card-title placeName">${place.name}</h5>
+          <h5 class="card-title placeName font-weight-bold">${place.name}</h5>
            <p class="placeDescription card-text">${place.description}</p>
            <a href="placeDetail/${place._id}">See More</a>
         </div>
