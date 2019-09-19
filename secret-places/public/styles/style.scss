@@ -5,7 +5,7 @@ $border-radius: 1.5rem;
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 body {
  margin: 0;
- font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-family: 'Muli', sans-serif;
  background-color: #D5B794;
  background-size: cover; }
 
@@ -45,7 +45,7 @@ a {
     background-color: #A45C40;
   }
 
-  #map {
+}#map {
     margin: 0;
     width: 60vw;
     height: 500px;
@@ -68,5 +68,14 @@ a {
     height: 40px;
     border-radius: 1rem;
    }
+  
+  @media (min-width: 320px) and (max-width: 768px) {
+    #map {
+      margin: 0;
+      width: 80vw;
+      height: 40vh;
+      overflow: hidden;
+      margin: 0 auto; }
+  }
 
 /# sourceMappingURL=style.css.map /
