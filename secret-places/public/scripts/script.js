@@ -82,6 +82,7 @@ function displayPlaces(){
   container.innerHTML = "";
   for(let place of markers){
     container.innerHTML += `
+<<<<<<< HEAD
     <div class="col-sm-4">
       <div class="card place-info">
         <div class="card-body">
@@ -92,6 +93,22 @@ function displayPlaces(){
         </div>
       </div>
     </div>
+||||||| merged common ancestors
+    <div class="places-container">
+      <h2 class="placeName">${place.name}</h2>
+      <img class='placeImgPro' src="${place.image}"
+      " alt="">
+      <p class="placeDescription">${place.description}</p>
+      <p class="placeTime font-italic font-weight-bold"> Time Posted: ${place.time}</p>
+=======
+    <div class="places-container">
+      <h2 class="placeName">${place.name}</h2>
+      <img class='placeImgPro' src="${place.image}"
+      " alt="">
+      <p class="placeDescription">${place.description}</p>
+      <a href="placeDetail/${place._id}"> See more</a>
+      <p class="placeTime font-italic font-weight-bold"> Time Posted: ${place.time}</p>
+>>>>>>> b10d9da62b3d2b9a2a6364bae437e6ca57e38a59
     </div>`;
    }
  }

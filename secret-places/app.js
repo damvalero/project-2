@@ -91,8 +91,8 @@ passport.use('login', new PassportLocalStrategy({ usernameField: 'email' }, (ema
     });
 }));
 
-passport.use('signup', new PassportLocalStrategy({ usernameField: 'email' }, (email, password, callback) => {
-  User.signUp(email, password)
+passport.use('signup', new PassportLocalStrategy({ usernameField: 'email' }, (email, password) => {
+  User.signUp(email, password )
     .then(user => {
       callback(null, user);
     })
