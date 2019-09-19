@@ -23,7 +23,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
   });
 
   router.post('/addPlace', uploadCloud.single("file"), (req, res, next) => {
-  console.log("THIS IS REQ.FILE", req.file.url);
    let name = req.body.name;
    let location = req.body.location;
    let category = req.body.category;
@@ -59,7 +58,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
     const name = req.body.name;
     const category = req.body.category;
     const description = req.body.description;
-    console.log(req.params.id)
   Places.update({_id: req.params.id}, { $set: {name, category, description}})
   .then((place) => {
     res.redirect("/profile/" + req.user._id);
@@ -68,17 +66,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
     console.log(error);
   })
   });
-
-  // router.post('/edit', (req, res, next) => {
-  //   const { name, category, description } = req.body;
-  // Places.update({_id: req.body._id}, { $set: {name, category, description}})
-  // .then((place) => {
-  //   res.redirect("/profile/" + req.user._id);
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // })
-  // });
 
   router.get('/delete/:id', routeGuardMiddleware, (req, res, next) => {
     Places.deleteOne({_id: req.params.id})
@@ -95,7 +82,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
       const id = req.params.id
     Places.findById(id)
     .then((place) => {
-      console.log(place)
       res.render("place-detail", {place});
     })
     .catch((error) => {
@@ -108,14 +94,11 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
       const newReview = {
         title: req.body.title,
         comment:req.body.comment
-
       }
-      console.log("UPDATE INFO", newReview);
     Places.findByIdAndUpdate(id, {
        $push: {reviews: newReview}
     })
     .then((place) => {
-      console.log("UPDATED PLACE",place)
       res.redirect("/placeDetail/" + place._id)
     })
     .catch((error) => {

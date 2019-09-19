@@ -1,12 +1,28 @@
 <h1 class='my-4'>Profile Page</h1>
 <h3>My Places</h3>
-
 <div class="row">
         {{#each places}}
             <div class="col-sm-4">
             <div class="card">
             <div class="card-body">
-            <img class="placeImgPro card-img-top mb-3" src="{{this.image}}" alt="">
+            <img class="card-img-top mb-3" src="{{this.image}}" alt="">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
+            <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
+            </div>
+            </div>
+            </div>
+        {{/each}}
+  </div>
+
+<h3>Favorites</h3>
+<div class="row">
+        {{#each favorites}}
+            <div class="col-sm-4">
+            <div class="card">
+            <div class="card-body">
+            <img class="card-img-top mb-3" src="{{this.image}}" alt="">
             <h5 class="card-title">{{this.name}}</h5>
             <p class="card-text">{{this.description}}</p>
             <button><a href='/edit/{{this._id}}'>Edit Place</a></button>

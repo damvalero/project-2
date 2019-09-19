@@ -10,10 +10,27 @@ a {
   color: $link-color;
 }
 
-// .placeImg {
-//   width: 50%;
-// }
-
-.placeImgPro {
-  width: 30%;
+.fas {
+  padding: 10px 10px 10px 10px;
+  float: right;
+  font-size: 1.5rem;
 }
+ 
+
+/* a {
+  color: #00b7ff; } */
+
+/*# sourceMappingURL=style.css.map */
+
+#map {
+  margin: 0;
+  width: 60vw;
+  height: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.fas {
+  float: right;
+  padding-top: 3px;
+} 

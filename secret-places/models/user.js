@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-
+const Object = mongoose.Schema.Types.ObjectId;
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -12,8 +12,11 @@ const userSchema = new mongoose.Schema({
   passwordHash: {
     type: String,
     required: true
-  }
-  
+  },
+  _favorites:[{
+    type: Object,
+    ref: "Places"
+  }]
 });
 
 const signInStatic = require('./user-login');
