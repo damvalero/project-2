@@ -22,3 +22,11 @@ a {
 .background-img {
   width:100vh
 }
+
+
+
+@media (min-width: 576px){
+  .card{
+    flex:33%;
+  }
+}

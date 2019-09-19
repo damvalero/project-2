@@ -4,20 +4,21 @@ let markers = []
 let mapMarker = []
 
 let mapContainer = document.getElementById('map');
-let categoryButton = document.getElementById('category-filter-btn');
-let selectButton = document.getElementById("category-filter");
 let container = document.querySelector(".row");
-let filterBtn = document.getElementsByClassName('select')
+let filter = document.getElementsByClassName("filter-btn")
 
 //Add Event Listener
 
-categoryButton.addEventListener('click', event => {
-  clearMarkers()
-  markers = []
-  mapMarker = []  
-  let result = selectButton.options[selectButton.selectedIndex].value;
-  getPlaces(result)	 
-});
+for(let i=0; i< filter.length; i++){
+  filter[i].addEventListener('click', event => {
+    console.log(filter[i].name)
+    let result = filter[i].name;
+    clearMarkers()
+    markers = []
+    mapMarker = []  
+    getPlaces(result)	 
+  });
+}
 
 // Gets Markers from Database
 function getPlaces(result) {
@@ -46,8 +47,8 @@ function getPlaces(result) {
 let map;
 function init() {
   map = new google.maps.Map(mapContainer, {
-    center: { lat: 39, lng: -9.75 },
-    zoom: 8
+    center: { lat: 38.732733, lng: -9.149165 },
+    zoom: 13
   });
 }
 
@@ -82,7 +83,7 @@ function displayPlaces(){
   container.innerHTML = "";
   for(let place of markers){
     container.innerHTML += `
-    <div class="col-sm-4">
+    <div class="col-sm-4 my-4">
       <div class="card place-info">
         <div class="card-body">
           <img class='placeImg card-img-top' src="${place.image}" alt="place">
