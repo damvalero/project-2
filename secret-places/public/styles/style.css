@@ -7125,7 +7125,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 .a:hover {
@@ -7134,4 +7133,8 @@ a {
 
   .sign-title {
     margin-top: 10rem;
+  }
+
+  .welcome {
+    font-size: 4rem;
   }
