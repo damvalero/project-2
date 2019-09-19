@@ -4,6 +4,10 @@ $link-color: #00b7ff;
 body {
   margin: 0;
   font-family: $font-sans;
+  background-size: cover;
+}
+.all-bodies{
+  background-color: #68623B;
 }
 
 a {
@@ -16,4 +20,39 @@ a {
 
 .placeImgPro {
   width: 30%;
+}
+
+
+a {
+  color: #00b7ff; }
+
+/*# sourceMappingURL=style.css.map */
+
+#map {
+  margin: 0;
+  width: 60vw;
+  height: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.filter-btn {
+  margin: 0 auto;
+}
+
+.background-img {
+  width:100vh;
+}
+
+.first-page{
+  background-image: url("/images/lisbon.jpg");
+  height: 800px;
+  width: 400px;
+  background-size: cover;
+}
+
+.navbar{
+  background-color: #FFCD58;
+  /* background-image: url(/images/cork5.jpg);
+  color: black */
 }
