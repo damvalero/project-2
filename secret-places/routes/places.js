@@ -48,7 +48,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
   router.get('/edit/:id', routeGuardMiddleware, (req, res, next) => {
     Places.findOne({_id: req.params.id})
   .then((place) => {
-    console.log(place)
     res.render("edit", {place});
   })
   .catch((error) => {
@@ -57,7 +56,10 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
   });
 
   router.post('/edit/:id', routeGuardMiddleware, (req, res, next) => {
-    const { name, category, description } = req.body;
+    const name = req.body.name;
+    const category = req.body.category;
+    const description = req.body.description;
+    console.log(req.params.id)
   Places.update({_id: req.params.id}, { $set: {name, category, description}})
   .then((place) => {
     res.redirect("/profile/" + req.user._id);
@@ -67,10 +69,20 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
   })
   });
 
+  // router.post('/edit', (req, res, next) => {
+  //   const { name, category, description } = req.body;
+  // Places.update({_id: req.body._id}, { $set: {name, category, description}})
+  // .then((place) => {
+  //   res.redirect("/profile/" + req.user._id);
+  // })
+  // .catch((error) => {
+  //   console.log(error);
+  // })
+  // });
+
   router.get('/delete/:id', routeGuardMiddleware, (req, res, next) => {
     Places.deleteOne({_id: req.params.id})
    .then((place) => {
-    console.log(req.user._id)
     res.redirect("/profile/" + req.user._id);
     })
     .catch((error) => {
@@ -81,7 +93,6 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
 
     router.get('/placeDetail/:id', routeGuardMiddleware, (req, res, next) => {
       const id = req.params.id
-
     Places.findById(id)
     .then((place) => {
       console.log(place)

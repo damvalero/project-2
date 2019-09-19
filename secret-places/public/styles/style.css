@@ -34,3 +34,11 @@ a {
   /* background-image: url(/images/cork5.jpg);
   color: black */
 }
+
+
+
+@media (min-width: 576px){
+  .card{
+    flex:33%;
+  }
+}
