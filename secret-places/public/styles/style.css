@@ -7076,6 +7076,16 @@ a {
   height: 40px;
   border-radius: 1rem;
  }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  #map {
+    margin: 0;
+    width: 60vw;
+    height: 40vh;
+    overflow: hidden;
+    margin: 0 auto; }
+}
+
 /*# sourceMappingURL=style.css.map */
 
 

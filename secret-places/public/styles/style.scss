@@ -8,11 +8,10 @@ $border-radius: 1.5rem;
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
-  margin: 0;
-  font-family: 'Muli', sans-serif;
-  background-color: white;
-  background-size: cover; 
-}
+ margin: 0;
+ font-family: 'Muli', sans-serif;
+ background-color: white;
+ background-size: cover; }
 
 .profile-btn{
   color: white;
@@ -82,7 +81,7 @@ opacity: 0.4;
 background-color: #A45C40;
 }
 
-  #map {
+#map {
     margin: 0;
     width: 60vw;
     height: 500px;
@@ -102,5 +101,14 @@ background-color: #A45C40;
     height: 40px;
     border-radius: 1rem;
    }
+  
+  @media (min-width: 320px) and (max-width: 768px) {
+    #map {
+      margin: 0;
+      width: 80vw;
+      height: 40vh;
+      overflow: hidden;
+      margin: 0 auto; }
+  }
 
 
