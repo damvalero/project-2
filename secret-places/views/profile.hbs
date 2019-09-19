@@ -1,5 +1,5 @@
 <h1 class='my-4 text-center display-2'>Welcome!</h1>
-<h3 class='my-4 text-center'>My Places</h3>
+<h2 class='my-4 text-center'>My Places</h2>
 <div class="row my-3">
         {{#each places}}
             <div class="col-sm-4">
@@ -8,16 +8,20 @@
             <a href='/placeDetail/{{this._id}}'><img class="card-img-top mb-3" src="{{this.image}}" alt=""></a>
             <h5 class="card-title">{{this.name}}</h5>
             <p class="card-text">{{this.description}}</p>
-            <button class='btn btn-primary'><a href='/edit/{{this._id}}'>Edit Place</a></button>
-            <button class='btn btn-primary'><a href='/delete/{{this._id}}'>Delete Place</a></button>
+            <div class='text-center'>
+            <button class="btn btn-outline-secondary mx-2 px-4"><a href='/edit/{{this._id}}'>Edit Place</a></button>
+            <button class="btn btn-outline-secondary mx-2"><a href='/delete/{{this._id}}'>Delete Place</a></button>
+            </div>
             </div>
             </div>
             </div>
         {{/each}}
   </div>
-<button class="btn btn-primary my-4 text-white d-block mx-auto btn-block w-50 h-50 py-2" ><a class="profile-btn" href='/add'>Add New Place</a></button>
-<h3 class='my-4 text-center'>My Favorites</h3>
-<div class="row my-3">
+  <div class="border-bottom">
+<button class="btn btn-primary my-5 text-white d-block mx-auto btn-block w-50 h-50 py-2" ><a class="profile-btn" href='/add'>Add New Place</a></button>
+</div>
+<h2 class='my-5 text-center'>My Favorites</h2>
+<div class="row mt-3">
         {{#each favorites}}
             <div class="col-sm-4">
             <div class="card">
