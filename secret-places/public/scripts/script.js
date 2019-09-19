@@ -96,7 +96,7 @@ function displayPlaces(){
     </div>`;
    }
  }
-
+ 
 getPlaces();
 
 

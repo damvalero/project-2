@@ -1,15 +1,28 @@
-<div class='my-3'>
-<h1 class='my-5 d-inline'>{{place.name}}</h1>
-
+{{!-- <div class="container my-4">
+  <div class="row">
+    <div class="col-sm text-center">
+      <h1 class='my-5 d-inline'>{{place.name}}</h1>
+    </div>
+    <div class="col-sm">
+      <form action="/addFavorite/{{place._id}}" method="POST">
+      <button class="favButton" type='submit'><i class="fas fa-heart"></i></button>
+      </form>
+    </div>
+  </div>
+</div> --}}
+  
 <form action="/addFavorite/{{place._id}}" method="POST">
-<button type='submit'><i class="fas fa-heart"></i></button>
+<button class="favButton" type='submit'><i class="fas fa-heart"></i></button>
 </form>
-</div>
+ 
 
-<img class="w-50 my-3" src="{{place.image}}" alt="">
-<p>{{place.description}}</p>
+<h1 class='mb-4 text-center placeName'>{{place.name}}</h1>
 
-<h4>Comments</h4>
+<img class="w-50 mt-3 mb-4 mx-auto d-block" src="{{place.image}}" alt="">
+
+<div class='container w-75'>
+<p class="description my-2 pb-3 border-secondary border-bottom">{{place.description}}</p>
+<h4 class=" my-4">Comments</h4>
 {{#each place.reviews}}
   <div class="card w-75 my-3 border-top-0 border-right-0 border-left-0">
     <div class="card-body">
@@ -19,19 +32,20 @@
   </div>
 {{/each}}
 
-<div class="mt-5">
-  <h5>Add A Comment</h5>
+<div class="my-5">
+  <h5 class="mb-3">Add A Comment</h5>
 <form action="/add-comment/{{place._id}}" method="post">
   <div class="form-group">
-    <label for="title">Title:</label>
-    <input type="text" name="title" id="description"></input>
+    <label class="d-block" for="title">Title:</label>
+    <input class="w-75 titleInput" type="text" name="title" id="description"></input>
   </div>
   <div class="form-group">
     <label for="comment">Comment:</label>
-    <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+    <textarea class="form-control w-75" name="comment" id="comment" rows="3"></textarea>
   </div>
   <div class="form-group form-check">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
 </div>

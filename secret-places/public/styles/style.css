@@ -7029,77 +7029,37 @@ body {
 a {
   color: #00b7ff; }
 
-<<<<<<< HEAD
-.fas {
-  padding: 10px 10px 10px 10px;
-  float: right;
-  font-size: 1.5rem; }
-||||||| merged common ancestors
+  .favButton {
+    float: right;
+    font-size: 2rem;
+    background-color: Transparent; 
+    border: none;
+    margin-top: .75rem;
+  }
 /*# sourceMappingURL=style.css.map */
-=======
-.placeImgPro {
-  width: 30%; }
-
-a {
-  color: #00b7ff; }
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
-
-<<<<<<< HEAD
-/* a {
-  color: #00b7ff; } */
-/*# sourceMappingURL=style.css.map */
-||||||| merged common ancestors
-=======
-/*# sourceMappingURL=style.css.map */
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
 #map {
   margin: 0;
   width: 60vw;
   height: 500px;
   overflow: hidden;
-<<<<<<< HEAD
-  margin: 0 auto; }
-||||||| merged common ancestors
-  margin: 0 auto;
-}
-
-.filter-btn {
-  margin: 0 auto;
-}
-
-.background-img {
-  width:100vh
-}
-
-=======
   margin: 0 auto; }
 
-.filter-btn {
-  margin: 0 auto; }
+  .navbar {
+    background-color: #A45C40;
+  }
 
-.background-img {
-  width: 100vh; }
+  .description{
+    font-size: 1.25rem; 
+ }
 
-/* 
-.first-page {
-  background-image: url("/images/lisbon.jpg");
-  height: 800px;
-  width: 1200px;
-  background-size: cover; } */
-.navbar {
-  /* background-color: #FFCD58; */
-  /*background-image: url(/images/navbar.jpeg);/* /*cork3.jpg*/
-  background-color: #A45C40;
-  /*color: black */ }
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
+ .placeName {
+   clear: both;
+ }
 
-<<<<<<< HEAD
-.fas {
-  float: right;
-  padding-top: 3px; }
-||||||| merged common ancestors
-=======
+ .titleInput{
+  height: 40px;
+  border-radius: 1rem;
+ }
 /*# sourceMappingURL=style.css.map */
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
 
 /*# sourceMappingURL=style.css.map */
