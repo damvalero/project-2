@@ -10,10 +10,11 @@ $border-radius: 1.5rem;
 body {
  margin: 0;
  font-family: 'Muli', sans-serif;
- background-color: #D5B794;
+ background-color: white;
  background-size: cover; }
 
 .profile-btn{
+  color: white;
   text-decoration: none;
 } 
 
@@ -49,6 +50,10 @@ a {
  width: 100vh; 
 }
 
+.card-body{
+opacity: 0.4;
+}
+
 .favButton {
     padding: 10px 10px 10px 10px;
     float: right;
@@ -75,20 +80,14 @@ a {
 /# sourceMappingURL=style.css.map /*/
 background-color: #A45C40;
 }
- .navbar {
-    background-color: #A45C40;
-  }
 
-}#map {
+#map {
     margin: 0;
     width: 60vw;
     height: 500px;
     overflow: hidden;
     margin: 0 auto; }
   
-    .navbar {
-      background-color: #A45C40;
-    }
   
     .description{
       font-size: 1.25rem; 
