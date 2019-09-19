@@ -12,7 +12,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', passport.authenticate('signup', {
-  successRedirect: "/",
+  successRedirect: "/home",
   failureRedirect: "/signup"
 }));
 
@@ -21,17 +21,17 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', passport.authenticate('login', {
-  successRedirect: "/",
+  successRedirect: "/home",
   failureRedirect: "/login"
 }));
 
-// router.get('/home', routeGuardMiddleware, (req, res, next) => {
-//   res.render('home', {API_KEY: process.env.API_KEY});
-// });
+router.get('/home', (req, res, next) => {
+  res.render('home', {API_KEY: process.env.API_KEY});
+});
 
 router.post('/logout', (req, res, next) => {
   req.logout();
-  res.redirect('/');
+  res.redirect('/home');
 });
 
 module.exports = router;

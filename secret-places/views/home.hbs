@@ -1,27 +1,39 @@
-<h1>Home</h1>
+<h1 class="text-center my-5">See What Is Happening</h1>
 
-<div>
-    <label for="category-filter">Choose a Category:</label>
+<div class="filter-btn text-center my-3">
     <select id="category-filter">
-        <option value="">Choose An Option</option>
+        <option value="">Choose An Category</option>
         <option value="tosee">To See</option>
         <option value="toeat">To Eat</option>
         <option value="todrink">To Drink</option>
     </select>
-    <button id="category-filter-btn">Submit</button>
+    <button class='btn btn-danger btn-sm' id="category-filter-btn">Submit</button>
 </div>
+
+{{!-- <div class="btn-group btn-group-toggle" id="category-filter-btn" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="tosee" class='select' id="tosee" autocomplete="off">To See</label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="toeat" class='select' id="toeat" autocomplete="off">To Eat</label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="todrink" class='select' id="todrink" autocomplete="off">To Drink</label>
+</div> --}}
+
  <div id="map"></div>
 
  {{!-- Lists each place --}}
- <h1>What's Happening</h1>
-   <div class="places-container">
-      <div class="place-info">
-        <h2 class="placeName">Name</h2>
-        <img class='placeImg' src="test"
-" alt="">
-        <p class="placeDescription">Description</p>
-        <p class="placeTime">Time</p>
-      </div>
-  </div>
+ <div class="row justify-content-around">
 
- <button type="button"><a href="/add">Add New Place</a></button>
+  <div class="col-sm-4 place-start">
+    <div class="card place-info">
+      <div class="card-body">
+        <img class='placeImg card-img-top' src="" alt="place">
+        <h5 class="card-title placeName"></h5>
+         <p class="placeDescription card-text"></p>
+          <p class="placeTime"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <button class='btn btn-danger my-4 text-white d-block mx-auto'  type="button"><a href="/add" class="text-white"> Add New Place</a></button>

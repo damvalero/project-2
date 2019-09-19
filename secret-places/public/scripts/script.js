@@ -3,19 +3,19 @@
 let markers = []
 let mapMarker = []
 
-const mapContainer = document.getElementById('map');
+let mapContainer = document.getElementById('map');
 let categoryButton = document.getElementById('category-filter-btn');
 let selectButton = document.getElementById("category-filter");
-//let locationButton = document.getElementById("location-btn");
-
-const container = document.querySelector(".places-container");
+let container = document.querySelector(".row");
+let filterBtn = document.getElementsByClassName('select')
 
 //Add Event Listener
+
 categoryButton.addEventListener('click', event => {
-  let result = selectButton.options[selectButton.selectedIndex].value;
   clearMarkers()
   markers = []
   mapMarker = []  
+  let result = selectButton.options[selectButton.selectedIndex].value;
   getPlaces(result)	 
 });
 
@@ -35,7 +35,6 @@ function getPlaces(result) {
         if(place.category.toLowerCase().split(' ').join('') === result)
         markers.push(place)
       });
-      console.log(markers)
       placePlaces()
     }
    })
@@ -80,18 +79,21 @@ function placePlaces(){
 }
 
 function displayPlaces(){
-  // cloudinary.imageTag('{place.image}', {type: "fetch"}).toHtml();
   container.innerHTML = "";
   for(let place of markers){
     container.innerHTML += `
-    <div class="places-container">
-      <h2 class="placeName">${place.name}</h2>
-      <img class='placeImgPro' src="${place.image}"
-      " alt="">
-      <p class="placeDescription">${place.description}</p>
-      <p class="placeTime font-italic font-weight-bold"> Time Posted: ${place.time}</p>
+    <div class="col-sm-4">
+      <div class="card place-info">
+        <div class="card-body">
+          <img class='placeImg card-img-top' src="${place.image}" alt="place">
+          <h5 class="card-title placeName">${place.name}</h5>
+           <p class="placeDescription card-text">${place.description}</p>
+            <p class="placeTime">${place.time}</p>
+        </div>
+      </div>
+    </div>
     </div>`;
-  }
-}
+   }
+ }
 
 getPlaces();

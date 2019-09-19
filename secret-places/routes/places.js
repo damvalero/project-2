@@ -39,7 +39,7 @@ router.get('/add', routeGuardMiddleware, (req, res, next) => {
     image: req.file.url
     })
     .then(place => { 
-        res.redirect('/')
+        res.redirect('/home')
         console.log('The place is saved and its value is: ', place); 
     })
     .catch(err => { console.log('An error happened:', err)});

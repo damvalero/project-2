@@ -2,13 +2,36 @@
 <h2>Welcome {{user.email}}!</h2>
 <h2>My Places</h2>
 
-   {{#each places}}
-    <p>{{this.name}}</p>
-    <img class="placeImgPro" src="{{this.image}}" alt="">
-    <p>{{this.description}}</p>
-        <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
-        <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
-    {{/each}}
+<div class="row">
+        {{#each places}}
+            <div class="col-sm-3">
+            <div class="card">
+            <div class="card-body">
+            <img class="placeImgPro card-img-top" src="{{this.image}}" alt="">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
+            <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
+            </div>
+            </div>
+            </div>
+        {{/each}}
+  </div>
+{{!-- 
+<div class="col-sm-4">
+      <div class="card place-info">
+        <div class="card-body">
+          <img class='placeImg card-img-top' src="${place.image}" alt="place">
+          <h5 class="card-title placeName">${place.name}</h5>
+           <p class="placeDescription card-text">${place.description}</p>
+            <p class="placeTime">${place.time}</p>
+        </div>
+      </div>
+    </div>
+    </div> --}}
+
+        
+    
 
 <button><a href='/add'>Add New Place</a></button>
 

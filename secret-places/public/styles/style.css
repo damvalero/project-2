@@ -9,15 +9,16 @@ a {
 
 #map {
   margin: 0;
-  width: 80vw;
+  width: 60vw;
   height: 500px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
-.placeImg {
-  width: 50%;
+.filter-btn {
+  margin: 0 auto;
 }
 
-.placeImgPro {
-  width: 30%;
+.background-img {
+  width:100vh
 }
