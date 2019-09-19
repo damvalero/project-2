@@ -7056,6 +7056,22 @@ a {
    clear: both;
  }
 
+.background-img {
+  width: 100vh; }
+
+/*
+.first-page {
+ background-image: url("/images/lisbon.jpg");
+ height: 800px;
+ width: 1200px;
+ background-size: cover; } */
+.navbar {
+  /* background-color: #FFCD58; */
+  /*background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+ background-color: #A45C40;
+ /color: black / }
+/# sourceMappingURL=style.css.map /*/ }
+
  .titleInput{
   height: 40px;
   border-radius: 1rem;
@@ -7072,4 +7088,28 @@ a {
 
 /*# sourceMappingURL=style.css.map */
 
-/*# sourceMappingURL=style.css.map */
+
+.navbar {
+  /* background-color: #FFCD58; */
+  /*background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+  
+  /color: black / }
+ /# sourceMappingURL=style.css.map /*/
+ background-color: #A45C40;
+ }
+
+ .profile-btn{
+  text-decoration: none;
+}
+.home-img{
+  background-image: url("../images/landscape3.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+}
+
+
+.title-home{
+  padding-top: 5px;
+}
+

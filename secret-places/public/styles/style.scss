@@ -1,19 +1,40 @@
 $font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $link-color: #00b7ff;
 $primary: #FF7044;
+$red: #DB1F48;
 $border-radius: 1.5rem;
+
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
 body {
  margin: 0;
  font-family: 'Muli', sans-serif;
  background-color: #D5B794;
  background-size: cover; }
 
+.profile-btn{
+  text-decoration: none;
+} 
+
 a {
  color: #00b7ff; 
 }
 
-// /# sourceMappingURL=style.css.map /
+.placeImgPro {
+ width: 30%; }
+
+.home-img{
+  background-image: url("../images/landscape3.jpg");
+  background-size: cover;
+  width: 800px;
+  height: 300px;
+}
+
+.title-home{
+  padding-top: 20px;
+}
+
 
 #map {
  margin: 0;
@@ -21,6 +42,11 @@ a {
  height: 500px;
  overflow: hidden;
  margin: 0 auto; 
+}
+.filter-btn {
+ margin: 0 auto; }
+.background-img {
+ width: 100vh; 
 }
 
 .favButton {
@@ -41,6 +67,14 @@ a {
  height: 800px;
  width: 1200px;
  background-size: cover; } */
+.navbar {
+ /* background-color: #FFCD58; */
+ /*background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+ 
+ /color: black / }
+/# sourceMappingURL=style.css.map /*/
+background-color: #A45C40;
+}
  .navbar {
     background-color: #A45C40;
   }
@@ -78,4 +112,4 @@ a {
       margin: 0 auto; }
   }
 
-/# sourceMappingURL=style.css.map /
+

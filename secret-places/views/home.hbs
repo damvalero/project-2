@@ -1,4 +1,6 @@
-<h1 class="mt-4 text-center">Places</h1>
+<div class=" home-img d-flex justify-content-center">
+<h1 class="title-home  mt-4  font-weight-bold text-white">FIND YOUR NEXT DESTINATION</h1>
+</div>
 
 <div class='mt-5 text-center'>
 <div class="btn-group" role="group" aria-label="Basic example">
@@ -13,4 +15,16 @@
  {{!-- Lists each place --}}
  <div class="row justify-content-around">
 
- <button class='btn btn-danger my-4 text-white d-block mx-auto btn-block w-50 h-50 py-2'  type="button"><a href="/add" class="text-white h4"> Add New Place</a></button>
+  <div class="col-sm-4 place-start">
+    <div class="card place-info">
+      <div class="card-body">
+        <img class='placeImg card-img-top' src="" alt="place">
+        <h5 class="card-title placeName"></h5>
+         <p class="placeDescription card-text"></p>
+          <p class="placeTime"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <button class='btn btn-primary my-4 text-white d-block mx-auto btn-block w-50 h-50 py-2'  type="button"><a href="/add" class="text-white h4"> Add New Place</a></button>
