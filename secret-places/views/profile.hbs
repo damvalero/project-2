@@ -25,15 +25,15 @@
             <img class="card-img-top mb-3" src="{{this.image}}" alt="">
             <h5 class="card-title">{{this.name}}</h5>
             <p class="card-text">{{this.description}}</p>
-            <button><a href='/edit/{{this._id}}'>Edit Place</a></button>
-            <button><a href='/delete/{{this._id}}'>Delete Place</a></button>
+            <button class="btn btn-info" ><a class="profile-btn" href='/edit/{{this._id}}'>Edit Place</a></button>
+            <button class="btn btn-danger"><a class="profile-btn" href='/delete/{{this._id}}'>Delete Place</a></button>
             </div>
             </div>
             </div>
         {{/each}}
   </div>
 
-<button><a href='/add'>Add New Place</a></button>
+<button class="btn btn-primary" ><a class="profile-btn" href='/add'>Add New Place</a></button>
 
 
     

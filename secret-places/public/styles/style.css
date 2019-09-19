@@ -7029,49 +7029,18 @@ body {
 a {
   color: #00b7ff; }
 
-<<<<<<< HEAD
-.fas {
-  padding: 10px 10px 10px 10px;
-  float: right;
-  font-size: 1.5rem; }
-||||||| merged common ancestors
-/*# sourceMappingURL=style.css.map */
-=======
 .placeImgPro {
   width: 30%; }
 
 a {
   color: #00b7ff; }
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
 
-<<<<<<< HEAD
-/* a {
-  color: #00b7ff; } */
 /*# sourceMappingURL=style.css.map */
-||||||| merged common ancestors
-=======
-/*# sourceMappingURL=style.css.map */
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
 #map {
   margin: 0;
   width: 60vw;
   height: 500px;
   overflow: hidden;
-<<<<<<< HEAD
-  margin: 0 auto; }
-||||||| merged common ancestors
-  margin: 0 auto;
-}
-
-.filter-btn {
-  margin: 0 auto;
-}
-
-.background-img {
-  width:100vh
-}
-
-=======
   margin: 0 auto; }
 
 .filter-btn {
@@ -7080,26 +7049,43 @@ a {
 .background-img {
   width: 100vh; }
 
-/* 
+/*
 .first-page {
-  background-image: url("/images/lisbon.jpg");
-  height: 800px;
-  width: 1200px;
-  background-size: cover; } */
+ background-image: url("/images/lisbon.jpg");
+ height: 800px;
+ width: 1200px;
+ background-size: cover; } */
 .navbar {
   /* background-color: #FFCD58; */
-  /*background-image: url(/images/navbar.jpeg);/* /*cork3.jpg*/
-  background-color: #A45C40;
-  /*color: black */ }
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
-
-<<<<<<< HEAD
-.fas {
-  float: right;
-  padding-top: 3px; }
-||||||| merged common ancestors
-=======
-/*# sourceMappingURL=style.css.map */
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
+  /*background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+ background-color: #A45C40;
+ /color: black / }
+/# sourceMappingURL=style.css.map /*/ }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.navbar {
+  /* background-color: #FFCD58; */
+  /*background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+  
+  /color: black / }
+ /# sourceMappingURL=style.css.map /*/
+ background-color: #A45C40;
+ }
+
+ .profile-btn{
+  text-decoration: none;
+}
+.home-img{
+  background-image: url("../images/landscape3.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+}
+
+
+.title-home{
+  padding-top: 5px;
+}
+
