@@ -2,87 +2,38 @@ $font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $link-color: #00b7ff;
 $primary: #FF7044;
 $border-radius: 1.5rem;
-
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
 body {
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #D5B794;
-  background-size: cover; }
-
-
-
-<<<<<<< HEAD
-.fas {
-  padding: 10px 10px 10px 10px;
-  float: right;
-  font-size: 1.5rem;
-}
- 
-
-/* a {
-  color: #00b7ff; } */
-
-/*# sourceMappingURL=style.css.map */
-
-#map {
-  margin: 0;
-  width: 60vw;
-  height: 500px;
-  overflow: hidden;
-  margin: 0 auto;
-}
-||||||| merged common ancestors
-// .placeImg {
-//   width: 50%;
-// }
-=======
+ margin: 0;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ background-color: #D5B794;
+ background-size: cover; }
 a {
-  color: #00b7ff; }
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
-
-<<<<<<< HEAD
-.fas {
-  float: right;
-  padding-top: 3px;
-} 
-||||||| merged common ancestors
+ color: #00b7ff; }
 .placeImgPro {
-  width: 30%;
-}
-=======
-.placeImgPro {
-  width: 30%; }
-
+ width: 30%; }
 a {
-  color: #00b7ff; }
-
-/*# sourceMappingURL=style.css.map */
+ color: #00b7ff; }
+/# sourceMappingURL=style.css.map /
 #map {
-  margin: 0;
-  width: 60vw;
-  height: 500px;
-  overflow: hidden;
-  margin: 0 auto; }
-
+ margin: 0;
+ width: 60vw;
+ height: 500px;
+ overflow: hidden;
+ margin: 0 auto; }
 .filter-btn {
-  margin: 0 auto; }
-
+ margin: 0 auto; }
 .background-img {
-  width: 100vh; }
-/* 
+ width: 100vh; }
+/*
 .first-page {
-  background-image: url("/images/lisbon.jpg");
-  height: 800px;
-  width: 1200px;
-  background-size: cover; } */
-
+ background-image: url("/images/lisbon.jpg");
+ height: 800px;
+ width: 1200px;
+ background-size: cover; } */
 .navbar {
-  /* background-color: #FFCD58; */
-  /*background-image: url(/images/navbar.jpeg);/* /*cork3.jpg*/
-  background-color: #A45C40;
-  /*color: black */ }
-
-/*# sourceMappingURL=style.css.map */
->>>>>>> 792542316fd29f97ceded6d7804bf7bd00ecd3ef
+ /* background-color: #FFCD58; */
+ /background-image: url(/images/navbar.jpeg);/ /cork3.jpg/
+ background-color: #A45C40;
+ /color: black / }
+/# sourceMappingURL=style.css.map /
