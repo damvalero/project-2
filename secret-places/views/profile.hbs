@@ -3,7 +3,7 @@
 <div class="row my-3">
         {{#each places}}
          <div class="col-sm-4">
-            <div class="card my-3">
+            <div class="card h-100 my-3">
                 <div class="card-body">
                     <a href='/placeDetail/{{this._id}}'><img class="card-img-top mb-3" src="{{this.image}}" alt=""></a>
                     <h5 class="card-title">{{this.name}}</h5>
@@ -24,7 +24,7 @@
 <div class="row my-3">
         {{#each favorites}}
             <div class="col-sm-4">
-            <div class="card my-3">
+            <div class="card h-100 my-3">
             <div class="card-body">
             <a href='/placeDetail/{{this._id}}'><img class="card-img-top mb-3" src="{{this.image}}" alt=""></a>
             <h5 class="card-title">{{this.name}}</h5>

@@ -87,12 +87,12 @@ function displayPlaces(){
   for(let place of markers){
     container.innerHTML += `
     <div class="col-sm-4 my-4">
-      <div class="card place-info shadow-lg">
+      <div class="card h-100 place-info shadow-lg">
         <div class="card-body">
           <img class='placeImg card-img-top' src="${place.image}" alt="place">
           <h5 class="card-title placeName font-weight-bold">${place.name}</h5>
            <p class="placeDescription card-text">${place.description}</p>
-           <a href="placeDetail/${place._id}">See More</a>
+           <a class="text-info" href="placeDetail/${place._id}">See More</a>
         </div>
       </div>
     </div>
