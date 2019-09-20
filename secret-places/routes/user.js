@@ -8,7 +8,6 @@ const User = require('../models/user');
 
 router.get('/profile/:id', (req, res, next) => {
   const favoritesList = req.user._favorites
-  console.log("ARE THESE MY FAVORITES?", favoritesList)
   Promise.all([
   User.findById(req.user._id).populate("_favorites"),
   Places.find({ addedBy: req.user.email})])
@@ -17,7 +16,6 @@ router.get('/profile/:id', (req, res, next) => {
       places: places,
       favorites: user._favorites
     }
-    console.log("promise all = populate test", data)
     res.render('profile', data);
     })
   .catch(error => {
@@ -30,7 +28,9 @@ router.post('/addFavorite/:id', (req, res, next) => {
     $push: {_favorites: req.params.id}
   })
   .then(user => {
+    console.log('this is', req.originalUrl)
     res.redirect('/profile/' + req.user._id);
+    // res.redirect('/' + req.originalUrl);
     })
   .catch(error => {
     console.log('Got an error updating')
