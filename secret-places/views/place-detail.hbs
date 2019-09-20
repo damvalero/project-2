@@ -9,7 +9,7 @@
 
 <div class='container'>
 <p class="description my-2 pb-3 border-secondary border-bottom">{{place.description}}</p>
-<h4 class=" my-4 font-weight-bold">Visitors Comments</h4>
+<h4 class=" my-4 font-weight-bold border-secondary ">Visitors Comments</h4>
 {{#each place.reviews}}
   <div class="card my-3">
     <div class="card-body">
@@ -19,7 +19,7 @@
   </div>
 {{/each}}
 
-<div class="my-3">
+<div class="my-3 pt-3 border-secondary border-top">
   <h5 class="mb-3 font-weight-bold">Add A Comment</h5>
 <form action="/add-comment/{{place._id}}" method="post">
    <div class="form-group">
