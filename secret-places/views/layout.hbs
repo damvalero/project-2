@@ -19,10 +19,10 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-           <li class="nav-item mx-2">
+           {{#if user}}
+            <li class="nav-item mx-2">
             <a class="nav-link text-light" href="/home">Places</a>
            </li>
-           {{#if user}}
            <li class="nav-item mx-2">
               <a class="nav-link text-light" href="/profile/{{user._id}}">Profile</a>
            </li>

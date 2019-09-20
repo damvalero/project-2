@@ -93,7 +93,6 @@ function displayPlaces(){
           <h5 class="card-title placeName font-weight-bold">${place.name}</h5>
            <p class="placeDescription card-text">${place.description}</p>
            <a class="text-info" href="placeDetail/${place._id}">See More</a>
-        </div>
       </div>
     </div>
     </div>`;
