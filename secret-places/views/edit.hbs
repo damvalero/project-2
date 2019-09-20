@@ -1,9 +1,9 @@
 <h1 class=my-4>Edit Places</h1>
-
+<button type="button" id='locationButton'>Get Current Location <span class="spinner-border spinner-border-sm hidden" id="loading" role="status" aria-hidden="true"></span></button>
    <form method="POST" action="/edit/{{place._id}}">
    <div class="form-group location-hide">
-    <label for="location">Location:</label>
-    <input id="location-input" class="form-control" type="text" name="location">
+    <label for="location" class="hidden">Location:</label>
+    <input id="location-input" class="form-control hidden " type="text" name="location">
     </div>
     <div class="form-group">
     <select class="form-control" id="category" name="category">
@@ -28,3 +28,5 @@
     <button class="btn btn-primary">Submit</button>
   </div>
 </form>
+
+ <script src="scripts/add.js"></script>
