@@ -7077,15 +7077,6 @@ a {
   border-radius: 1rem;
  }
 
-@media (min-width: 320px) and (max-width: 768px) {
-  #map {
-    margin: 0;
-    width: 80vw;
-    height: 40vh;
-    overflow: hidden;
-    margin: 0 auto; }
-}
-
 /*# sourceMappingURL=style.css.map */
 
 
@@ -7125,7 +7116,6 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
 }
 
 .a:hover {
@@ -7137,5 +7127,27 @@ a {
   }
 
   .jumbotron{
-    opacity: 0.6;
+    opacity: 0.7;
   }
+  .welcome {
+    font-size: 4rem;
+  }
+
+  .login-container{
+    width: 75%;
+  }
+
+  @media (min-width: 320px) and (max-width: 768px) {
+    #map {
+      margin: 0;
+      width: 80vw;
+      height: 40vh;
+      overflow: hidden;
+      margin: 0 auto; }
+  
+    .login-container{
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
