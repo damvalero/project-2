@@ -7130,7 +7130,8 @@ a {
     opacity: 0.7;
   }
   .welcome {
-    font-size: 4rem;
+    width: 450px;
+    
   }
 
   .login-container{
@@ -7150,4 +7151,17 @@ a {
       padding: 0;
     }
   }
+
+  .myplaces{
+    width: 250px;
+    padding-top: 30px;
+  }
+
+  .myfavourite{
+    width: 300px;
+    padding-top: 30px;
+  }
   
+  .secretplace{
+    width: 400px;
+  }
