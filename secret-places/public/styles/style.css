@@ -7086,7 +7086,7 @@ a {
   
   /color: black / }
  /# sourceMappingURL=style.css.map /*/
- background-color: #A45C40;
+ background-color: #FF7044;/*#BC4218*/
  }
 
 
@@ -7096,7 +7096,7 @@ a {
 } 
 
 .home-img{
-  background-image: url("../images/landscape3.jpg");
+  background-image: url("../images/landscape4.jpg");
   background-size: cover;
   width: 100%;
   height: 200px;
@@ -7126,8 +7126,12 @@ a {
     margin-top: 10rem;
   }
 
+  .jumbotron{
+    opacity: 0.7;
+  }
   .welcome {
-    font-size: 4rem;
+    width: 450px;
+    
   }
 
   .login-container{
@@ -7147,4 +7151,17 @@ a {
       padding: 0;
     }
   }
+
+  .myplaces{
+    width: 250px;
+    padding-top: 30px;
+  }
+
+  .myfavourite{
+    width: 300px;
+    padding-top: 30px;
+  }
   
+  .secretplace{
+    width: 400px;
+  }
