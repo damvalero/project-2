@@ -4,7 +4,7 @@ require("dotenv").config();
 const { Router } = require('express');
 const router = Router();
 const passport = require('passport');
-// const routeGuardMiddleware = require('../../controllers/route-guard-middleware');
+const routeGuardMiddleware = require('../../controllers/route-guard-middleware');
 // const Places = require('../../models/places');
 
 router.get('/signup', (req, res, next) => {
@@ -25,7 +25,7 @@ router.post('/login', passport.authenticate('login', {
   failureRedirect: "/login"
 }));
 
-router.get('/home', (req, res, next) => {
+router.get('/home', routeGuardMiddleware, (req, res, next) => {
   res.render('home', {API_KEY: process.env.API_KEY});
 });
 
