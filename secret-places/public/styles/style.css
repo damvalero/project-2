@@ -7095,7 +7095,7 @@ a {
   
   /color: black / }
  /# sourceMappingURL=style.css.map /*/
- background-color: #A45C40;
+ background-color: #FF7044;/*#BC4218*/
  }
 
 
@@ -7105,7 +7105,7 @@ a {
 } 
 
 .home-img{
-  background-image: url("../images/landscape3.jpg");
+  background-image: url("../images/landscape4.jpg");
   background-size: cover;
   width: 100%;
   height: 200px;
@@ -7134,4 +7134,8 @@ a {
 
   .sign-title {
     margin-top: 10rem;
+  }
+
+  .jumbotron{
+    opacity: 0.6;
   }
