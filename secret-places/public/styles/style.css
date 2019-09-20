@@ -7168,3 +7168,7 @@ a {
   .secretplace{
     width: 400px;
   }
+
+  .hidden {
+    display: none;
+  }

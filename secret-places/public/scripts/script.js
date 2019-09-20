@@ -8,7 +8,6 @@ let container = document.querySelector(".row");
 let filter = document.getElementsByClassName("filter-btn")
 
 //Add Event Listener
-
 for(let i=0; i< filter.length; i++){
   filter[i].addEventListener('click', event => {
     console.log(filter[i].name)
@@ -100,6 +99,3 @@ function displayPlaces(){
  }
  
 getPlaces();
-
-
-// <p class="placeTime font-italic font-weight-bold">${place.time}</p>
