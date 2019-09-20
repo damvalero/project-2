@@ -1,9 +1,8 @@
-{{!-- <h1 class='my-4 text-center h1 welcome'>Welcome!</h1> --}}
-<img class=" d-flex text-center mx-auto welcome" src="../images/welcome.png">
+<img class="mt-5 d-flex text-center mx-auto welcome" src="../images/welcome.png">
 <img class=" d-flex text-center mx-auto myplaces" src="../images/myplaces.png">
-<div class="row my-3">
+<div class="row">
         {{#each places}}
-         <div class="col-sm-4">
+         <div class="col-sm-4 my-4">
             <div class="card h-100 my-3">
                 <div class="card-body">
                     <a href='/placeDetail/{{this._id}}'><img class="card-img-top mb-3" src="{{this.image}}" alt=""></a>
@@ -24,7 +23,7 @@
 <img class=" d-flex text-center mx-auto myfavourite" src="../images/myfavourite.png">
 <div class="row my-3">
         {{#each favorites}}
-            <div class="col-sm-4">
+            <div class="col-sm-4 my-4">
             <div class="card h-100 my-3">
             <div class="card-body">
             <a href='/placeDetail/{{this._id}}'><img class="card-img-top mb-3" src="{{this.image}}" alt=""></a>
