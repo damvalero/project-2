@@ -47,7 +47,7 @@ function getPlaces(result) {
 let map;
 function init() {
   map = new google.maps.Map(mapContainer, {
-    center: { lat: 38.732733, lng: -9.149165 },
+    center: { lat: 38.720799, lng: -9.139713 },
     zoom: 13,
     mapTypeControl: false,
     streetViewControl: false,

@@ -7095,12 +7095,6 @@ a {
   text-decoration: none;
 } 
 
-.home-img{
-  background-image: url("../images/landscape4.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 200px;
-}
 
 
 .title-home{
@@ -7138,6 +7132,11 @@ a {
     width: 75%;
   }
 
+  .findImage{
+    width:75%;
+  }
+  
+
   @media (min-width: 320px) and (max-width: 768px) {
     #map {
       margin: 0;
@@ -7149,6 +7148,10 @@ a {
     .login-container{
       width: 100%;
       padding: 0;
+    }
+
+    .findImage{
+      width: 100%;
     }
   }
 
