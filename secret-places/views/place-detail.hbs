@@ -3,13 +3,13 @@
 </form>
 
 
-<h1 class='mb-4 text-center placeName'>{{place.name}}</h1>
+<h1 class='mb-4 text-center placeName font-weight-bold'>{{place.name}}</h1>
 
 <img class="w-50 mt-3 mb-4 mx-auto d-block" src="{{place.image}}" alt="">
 
 <div class='container'>
 <p class="description my-2 pb-3 border-secondary border-bottom">{{place.description}}</p>
-<h4 class=" my-4">Comments</h4>
+<h4 class=" my-4 font-weight-bold">Visitors Comments</h4>
 {{#each place.reviews}}
   <div class="card my-3">
     <div class="card-body">
@@ -20,14 +20,14 @@
 {{/each}}
 
 <div class="my-3">
-  <h5 class="mb-3">Add A Comment</h5>
+  <h5 class="mb-3 font-weight-bold">Add A Comment</h5>
 <form action="/add-comment/{{place._id}}" method="post">
    <div class="form-group">
-    <label for="title">Title:</label>
+    <label class="font-weight-bold" for="title">Title:</label>
     <input type="text" class="form-control" name="title" id="description">
   </div>
  <div class="form-group">
-    <label for="comment">Comment:</label>
+    <label class="font-weight-bold" for="comment">Comment:</label>
     <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
   </div>
   <div class="form-group form-check">
