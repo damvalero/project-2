@@ -1,9 +1,11 @@
  <h2>Add a Secret Place!</h2>
-<button id='location-btn'>Get My Location</button>
+ 
+<button type="button" id='locationButton'>Get Current Location <span class="spinner-border spinner-border-sm hidden" id="loading" role="status" aria-hidden="true"></span></button>
+
 <form method="POST" action="/addPlace" enctype="multipart/form-data">
    <div class="form-group location-hide">
-    <label for="location">Location:</label>
-    <input id="location-input" class="form-control" type="text" name="location" placeholder="Location">
+    <label class="hidden" for="location">Location:</label>
+    <input id="location-input" class="form-control hidden" type="text" name="location" placeholder="Location">
     </div>
     <div class="form-group">
     <select class="form-control" id="category" name="category">
